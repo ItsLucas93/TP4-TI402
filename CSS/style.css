@@ -1,147 +1,291 @@
-html{
-    background-color: lightgray;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0%;
+body {
+    background-color: lightgrey;
+    color: #1c1515;
+    font-family: 'Montserrat', Arial, sans-serif;
+    width: 100%;
     margin: 0%;
-    width: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-header{
-    background-image: url("../img/background.jpg");
-    background-size: cover;
+header, footer {
+    background-image: url("../img/header.png");
+    background-position: center;
     background-repeat: no-repeat;
-    width: auto;
-    padding: 15px;
-    box-shadow: 10px 10px 5px gray;
+    background-size: 100%;
+    padding: 0.5%;
+    box-shadow: 0px 2px 4px #1c1515;
+}
+
+header {
+    flex-shrink: 0;
+    margin-bottom: 20px;
+}
+
+section {
     display: flex;
-}
-
-footer{
-    background-image: url("../img/background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    left: 0px;
-    right: 0px;
-    padding: 20px;
-    box-shadow: 10px 10px 5px gray;
-    position: fixed;
-    bottom: 0px;
-}
-
-body{
-    margin: 0%;
-    padding: 0%;
-}
-
-h1{
-    text-align: center;
-    color: blue;
-}
-
-h2{
-    text-align: center;
-    color: blue;
-}
-
-a{
-    color: white;
-}
-
-img{
-    margin-right: auto;
-    height: 120px;
-    width: 120px;
-}
-
-section{
-    text-align: center;
-    text-justify: auto;
-}
-
-#tableau{
-    margin-top: 40px;
-    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: auto;
+    position: relative;
 }
 
-#generateur{
-    margin-top: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+footer {
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: auto;
+    position: relative;
 }
-#infopwd{
-    margin-top: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+section h1, h2, p, li {
+    text-align: center;
 }
-#liste{
+
+section ol {
+    display: none;
+}
+
+section li {
     color: red;
+    list-style: none;
 }
 
-#menu{
-    margin-right: 0px;
-    margin-left: auto;
-    width: 360px;
-    list-style-type: none;
-    display: flex;
+h1 {
+    color: #2d2c2c;
+    font-size: 24px;
 }
-#menu li{
-    padding: 5px;
-    background-color: lightgray;
+
+h2 {
+    color: #674f4f;
+    font-size: 22px;
+}
+
+p {
+    padding: 10px;
+}
+
+a {
+    display: block;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+/* -- Nav bar -- */
+
+#menu {
+    padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-}
-#menu li a{
-    color: black;
+    list-style: none;
 }
 
-#menu li:nth-child(1):hover{
-    background-color: lightskyblue;
-    transition: all, 1s;
+#menu img {
+    width: 200px;
+    height: 100px;
+    border-width: 2px;
 }
 
-#menu li:nth-child(2):hover{
-    background-color: rebeccapurple;
-    transition: all, 1s;
-}
-#menu li:nth-child(1):hover a{
-    color: black;
-    transition: all, 1s;
+#menu .button {
+    display: flex;
+    align-items: center;
+    list-style: none;
 }
 
-#menu li:nth-child(2):hover a{
-    color: white;
-    transition: all, 1s;
+#menu .button li a {
+    text-decoration: none;
+    padding: 3px;
+    border-radius: 10px;
+    margin-left: 20px;
 }
 
-#menu li:nth-child(3):hover{
-    background-color: red;
-    transition: all, 1s;
+
+#menu .button li:first-child a {
+    background-color: #d0ba18;
 }
-#menu li:nth-child(3):hover a{
+
+#menu .button li:nth-child(2) a {
+    background-color: #FF5733;
+}
+
+#menu .button li:nth-child(3) a {
+    background-color: #1d793f;
+}
+
+#menu .button li a:hover {
     color: blue;
-    transition: all, 1s;
+    background-color: lightsalmon;
 }
 
-.c1{
-    background:darkmagenta;
+/* -- Information.html -- */
+
+.c1 {
+    background-color: purple;
+    color: white;
 }
 
-.c2{
-    background:red;
+.c1:hover {
+    background-color: #ec3fec;
 }
 
-.c3{
-    background:orange;
+.c2 {
+    color: white;
+    background-color: red;
 }
 
-.c4{
-    background:yellow;
+.c2:hover {
+    background-color: #ff6b6b;
 }
-.c5{
-    background:green;
+
+.c3 {
+    background-color: orange;
+}
+
+.c3:hover {
+    background-color: #fdc762;
+}
+
+.c4 {
+    background-color: yellow;
+}
+
+.c4:hover {
+    background-color: #bebe35;
+}
+
+
+.c5 {
+    background-color: greenyellow;
+}
+
+.c5:hover {
+    background-color: #268110;
+}
+
+#information h1 {
+    font-size: 30px;
+}
+
+#information {
+    position: relative;
+    margin: auto;
+    background-color: #beb9b9;
+    border-radius: 10px;
+    border: #1c1515;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#information:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#information caption {
+    color: darkblue;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 24px;
+}
+
+#information caption:hover {
+    font-family: 'Minecraftia_Regular.ttf', Montserrat, Arial, sans-serif;
+}
+
+table {
+    margin: 2vh;
+    border-collapse: collapse;
+    border: 1px solid transparent;
+}
+
+table td {
+    border: 1px solid white;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+td {
+    text-align: center;
+}
+
+thead th {
+    font-weight: bold;
+    border: none;
+    font-size: 95%;
+}
+
+/** -- Password -- **/
+
+#password h1 {
+    color: darkblue;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#password .password {
+    position: relative;
+    margin: 20px auto auto;
+    width: 90vw;
+    background-color: #beb9b9;
+    border-radius: 10px;
+    border: #1c1515;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#password .password:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+
+#password fieldset {
+    margin: 10px;
+    text-align: center;
+}
+
+#password legend {
+    color: darkblue;
+    font-size: 18px;
+    font-weight: unset;
+    text-align: center;
+}
+
+#password .validate {
+    background-color: green;
+    color: white;
+}
+
+#password .delete {
+    background-color: #e30f0f;
+    color: white;
+}
+
+#password .btn {
+    border: 1px solid black;
+}
+
+main {
+    position: relative;
+    margin: 20px auto;
+    width: 90vw;
+    background-color: #beb9b9;
+    border-radius: 10px;
+    border: #1c1515;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    text-align: center;
+    justify-content: space-between;
+}
+
+main:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+main thead th {
+    width: 80vw;
+    font-weight: bold;
+    border-bottom: 1px #674f4f;
 }

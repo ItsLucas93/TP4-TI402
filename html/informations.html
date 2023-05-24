@@ -1,187 +1,177 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-    <head> 	
-        <title>Secure Password - Informations</title>
-        <meta charset="utf-8">
-        <link rel= "stylesheet" href="../css/style.css">
-        <style>
-            table, td, th {
-                border: 1px solid #333;
-            }
-            
-        </style>
-        <link ref="stylesheet" href="../css/style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    
-    <body>
-        <header>
-            <a href="https://fr.wikipedia.org/wiki/Attaque_par_force_brute">
-                <img alt="image alt text" src="../img/img_cyber.png">
-            </a>
-                <ul id="menu">
-                    <li>
-                        <a href="./informations.html">Informations utiles </a>
-                    </li>
-                    <li>
-                        <a href="./password.html">Générateur de mot de passe</a>
-                    </li>
-                    <li>
-                        <a href="./accueil.html"> Accueil</a>
-                    </li>
-                </ul>
-            
-        </header>       
-        <section id="tableau">
+<head>
+    <title>Secure Password - Informations</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
 
-            <table>
-                <caption><h1>Temps nécessaire pour déchifrer un mot de passe en fonction de sa compléxité</h1><br></caption>
-                <thead>
-                    <tr>
-                        <th class="index">Nombre de caractères</th>
-                        <th class="index">Uniquement des nombres</th>
-                        <th class="index">Uniquement des minuscules</th>
-                        <th class="index">Minuscules et majuscules</th>
-                        <th class="index">Minuscules, majuscules et chiffres</th>
-                        <th class="index">Minuscules, majuscules, chiffres et symboles</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="index">4</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c1">Instantané</td>
-                    </tr>
-                    <tr>
-                        <td class="index">5</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c1">Instantané</td>
-                    </tr>
-                    <tr>
-                        <td class="index">6</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c2">1 s</td>
-                        <td class="c2">5 s</td>
-                    </tr>
-                    <tr>
-                        <td class="index">7</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c2">25 s</td>
-                        <td class="c2">1 mn</td>
-                        <td class="c2">6 mn</td>
-                    </tr>
-                    <tr>
-                        <td class="index">8</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c2">5 s</td>
-                        <td class="c2">22 mn</td>
-                        <td class="c2">1 heure</td>
-                        <td class="c2">8 heures</td>
-                    </tr>
-                    <tr>
-                        <td class="index">9</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c2">2 mn</td>
-                        <td class="c2">19 heures</td>
-                        <td class="c3">3 jours</td>
-                        <td class="c3">3 semaines</td>
-                    </tr>
-                    <tr>
-                        <td class="index">10</td>
-                        <td class="c1">Instantané</td>
-                        <td class="c2">58 mn</td>
-                        <td class="c3">1 mois</td>
-                        <td class="c3">7 mois</td>
-                        <td class="c3">5 années</td>
-                    </tr>
-                    <tr>
-                        <td class="index">11</td>
-                        <td class="c2">2 s</td>
-                        <td class="c3">1 jour</td>
-                        <td class="c3">5 années</td>
-                        <td class="c4">41 années</td>
-                        <td class="c4">400 années</td>
-                    </tr>
-                    <tr>
-                        <td class="index">12</td>
-                        <td class="c2">25 s</td>
-                        <td class="c3">3 semaines</td>
-                        <td class="c4">300 années</td>
-                        <td class="c4">2k années</td>
-                        <td class="c4">34k années</td>
-                    </tr>
-                    <tr>
-                        <td class="index">13</td>
-                        <td class="c2">4 mn</td>
-                        <td class="c3">1 an</td>
-                        <td class="c4">16k années</td>
-                        <td class="c4">100k années</td>
-                        <td class="c5">2m années</td>
-                    </tr>
-                    <tr>
-                        <td class="index">14</td>
-                        <td class="c2">41 mn</td>
-                        <td class="c4">51 années</td>
-                        <td class="c4">800k années</td>
-                        <td class="c5">9m années</td>
-                        <td class="c5">200m années</td>
-                    </tr>
-                    <tr>
-                        <td class="index">15</td>
-                        <td class="c2">6 heures</td>
-                        <td class="c4">1k années</td>
-                        <td class="c5">43m années</td>
-                        <td class="c5">600m années</td>
-                        <td class="c5">15bn années</td>
-                    </tr>
-                    <tr>
-                        <td class="index">16</td>
-                        <td class="c3">2 jours</td>
-                        <td class="c4">34k années</td>
-                        <td class="c5">2bn années</td>
-                        <td class="c5">37bn années</td>
-                        <td class="c5">1tn années</td>
-                    </tr>
-                    <tr>
-                        <td class="index">17</td>
-                        <td class="c3">4 semaines</td>
-                        <td class="c4">800k années</td>
-                        <td class="c5">100bn années</td>
-                        <td class="c5">2tn années</td>
-                        <td class="c5">93tn années</td>
-                    </tr>
-                    <tr>
-                        <td class="index">18</td>
-                        <td class="c3">9 mois</td>
-                        <td class="c5">23m années</td>
-                        <td class="c5">61tm années</td>
-                        <td class="c5">100tn années</td>
-                        <td class="c5">7 qd années</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="6">
-                            Soyez vigilant !!!
-                        </td> 
-                    </tr>
-                </tfoot>
-                
-            </table>
-        </section>
-        <footer>
-            <a href="https://fr.wikipedia.org/wiki/Attaque_par_force_brute">En savoir plus ?</a>
-            <a href="./apropos.html">  A propos</a>
-        </footer>
-    </body>
+<body>
+
+<header>
+    <ul id="menu">
+        <li>
+            <img alt="image alt text" src="../img/logo.svg" height="200" width="400">
+        </li>
+        <li>
+            <ul class="button">
+                <li>
+                    <a href="./accueil.html"> Accueil</a>
+                </li>
+                <li>
+                    <a href="./informations.html">Informations utiles</a>
+                </li>
+                <li>
+                    <a href="./password.html">Générateur de mot de passe</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</header>
+
+<section id="information">
+    <h1>Informations utiles</h1>
+    <table>
+        <caption>Temps nécessaire pour déchifrer un mot de passe en fonction de sa compléxité</caption>
+        <thead>
+        <tr>
+            <th>Nombre de caractères</th>
+            <th>Uniquement des nombres</th>
+            <th>Uniquement des minuscules</th>
+            <th>Minuscules et majuscules</th>
+            <th>Minuscules, majuscules et chiffres</th>
+            <th>Minuscules, majuscules, chiffres et symboles</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>4</td>
+            <td class="c1">Instantané</td>
+            <td class="c1">Instantané</td>
+            <td class="c1">Instantané</td>
+            <td class="c1">Instantané</td>
+            <td class="c1">Instantané</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td class="c1">Instantané</td>
+            <td class="c1">Instantané</td>
+            <td class="c1">Instantané</td>
+            <td class="c1">Instantané</td>
+            <td class="c1">Instantané</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td class="c1">Instantané</td>
+            <td class="c1">Instantané</td>
+            <td class="c1">Instantané</td>
+            <td class="c2">1 s</td>
+            <td class="c2">5 s</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td class="c1">Instantané</td>
+            <td class="c1">Instantané</td>
+            <td class="c2">25 s</td>
+            <td class="c2">1 mn</td>
+            <td class="c2">6 mn</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td class="c1">Instantané</td>
+            <td class="c2">5 s</td>
+            <td class="c2">22 mn</td>
+            <td class="c2">1 heure</td>
+            <td class="c3">8 heures</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td class="c1">Instantané</td>
+            <td class="c2">2 mn</td>
+            <td class="c3">19 heures</td>
+            <td class="c3">3 jours</td>
+            <td class="c3">3 semaines</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td class="c1">Instantané</td>
+            <td class="c2">58 mn</td>
+            <td class="c3">1 mois</td>
+            <td class="c3">7 mois</td>
+            <td class="c3">5 années</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td class="c2">2 s</td>
+            <td class="c3">1 jour</td>
+            <td class="c3">5 années</td>
+            <td class="c4">41 années</td>
+            <td class="c4">400 années</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td class="c2">25 s</td>
+            <td class="c3">3 semaines</td>
+            <td class="c4">300 années</td>
+            <td class="c4">2k années</td>
+            <td class="c4">34k années</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td class="c2">4 mn</td>
+            <td class="c3">1 an</td>
+            <td class="c4">16k années</td>
+            <td class="c4">100k années</td>
+            <td class="c5">2m années</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td class="c2">41 mn</td>
+            <td class="c4">51 années</td>
+            <td class="c4">800k années</td>
+            <td class="c5">9m années</td>
+            <td class="c5">200m années</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td class="c3">6 heures</td>
+            <td class="c4">1k années</td>
+            <td class="c5">43m années</td>
+            <td class="c5">600m années</td>
+            <td class="c5">15bn années</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td class="c3">2 jours</td>
+            <td class="c4">34k années</td>
+            <td class="c5">2bn années</td>
+            <td class="c5">37bn années</td>
+            <td class="c5">1tn années</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td class="c3">4 semaines</td>
+            <td class="c4">800k années</td>
+            <td class="c5">100bn années</td>
+            <td class="c5">2tn années</td>
+            <td class="c5">93tn années</td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td class="c3">9 mois</td>
+            <td class="c5">23m années</td>
+            <td class="c5">61tm années</td>
+            <td class="c5">100tn années</td>
+            <td class="c5">7 qd années</td>
+        </tr>
+        </tbody>
+
+    </table>
+</section>
+<footer>
+    <a href="https://fr.wikipedia.org/wiki/Attaque_par_force_brute">En savoir plus ?</a>
+</footer>
+</body>
 </html>
