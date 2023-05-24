@@ -1,0 +1,147 @@
+html{
+    background-color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0%;
+    margin: 0%;
+    width: auto;
+}
+
+header{
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: auto;
+    padding: 15px;
+    box-shadow: 10px 10px 5px gray;
+    display: flex;
+}
+
+footer{
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    left: 0px;
+    right: 0px;
+    padding: 20px;
+    box-shadow: 10px 10px 5px gray;
+    position: fixed;
+    bottom: 0px;
+}
+
+body{
+    margin: 0%;
+    padding: 0%;
+}
+
+h1{
+    text-align: center;
+    color: blue;
+}
+
+h2{
+    text-align: center;
+    color: blue;
+}
+
+a{
+    color: white;
+}
+
+img{
+    margin-right: auto;
+    height: 120px;
+    width: 120px;
+}
+
+section{
+    text-align: center;
+    text-justify: auto;
+}
+
+#tableau{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#generateur{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#infopwd{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#liste{
+    color: red;
+}
+
+#menu{
+    margin-right: 0px;
+    margin-left: auto;
+    width: 360px;
+    list-style-type: none;
+    display: flex;
+}
+#menu li{
+    padding: 5px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#menu li a{
+    color: black;
+}
+
+#menu li:nth-child(1):hover{
+    background-color: lightskyblue;
+    transition: all, 1s;
+}
+
+#menu li:nth-child(2):hover{
+    background-color: rebeccapurple;
+    transition: all, 1s;
+}
+#menu li:nth-child(1):hover a{
+    color: black;
+    transition: all, 1s;
+}
+
+#menu li:nth-child(2):hover a{
+    color: white;
+    transition: all, 1s;
+}
+
+#menu li:nth-child(3):hover{
+    background-color: red;
+    transition: all, 1s;
+}
+#menu li:nth-child(3):hover a{
+    color: blue;
+    transition: all, 1s;
+}
+
+.c1{
+    background:darkmagenta;
+}
+
+.c2{
+    background:red;
+}
+
+.c3{
+    background:orange;
+}
+
+.c4{
+    background:yellow;
+}
+.c5{
+    background:green;
+}
