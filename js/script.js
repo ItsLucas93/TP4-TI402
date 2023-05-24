@@ -92,20 +92,23 @@ function generer(){
         var catego = document.createElement("td");
         var siteappli = document.createElement("td");
         var finalpassword = document.createElement("td");
+        var dureevalidite = document.createElement("td");
 
         nbcar.textContent = monformulaire.elements["nombrecar"].value;
         date.textContent = monformulaire.elements["date"].value;
         catego.textContent = monformulaire.elements["categorie"].value;
         siteappli.textContent = monformulaire.elements["siteapp"].value;
         finalpassword.textContent = password;
+        dureevalidite.textContent = '0';
 
         nbcar.classList.add("c1");
         date.classList.add("c2");
         catego.classList.add("c3");
         siteappli.classList.add("c4");
         finalpassword.classList.add("c5");
+        dureevalidite.classList.add("dureevalidite");
 
-        newLine.append(nbcar, date, catego, siteappli, finalpassword);
+        newLine.append(nbcar, date, catego, siteappli, finalpassword, dureevalidite);
 
         var pwdTab = document.getElementById("montab");
 
@@ -113,3 +116,15 @@ function generer(){
     }
     else {alert("Champs incomplets. Veuillez remplir les champs et cocher l'une des cases.");}
 }
+
+function incrementerDuree() {
+    let durees = document.getElementsByClassName("duree")
+    if (durees.length !== 0) {
+        Array.prototype.forEach.call(durees, function(dureeElement) {
+            let valeur = parseInt(dureeElement.textContent);
+            dureeElement.textContent = valeur + 1;
+        });
+    }
+}
+
+const intervalID = setInterval(incrementerDuree, 1);
