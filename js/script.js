@@ -3,7 +3,7 @@ var majuscule = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var chiffre = "0123456789";
 var carspecial = "%!&*^()#$:";
 
-function hasCharacter(string1, string2) {
+/*function hasCharacter(string1, string2) {
     for (var i = 0; i < string2.length; i++) {if (string1.includes(string2[i])) {return true;}}
     return false;
 }
@@ -28,16 +28,38 @@ function verify(password, monformulaire) {
         }
     }
     return true;
+}*/
+
+function check(){
+    if((monformulaire.elements["minuscule"].checked || monformulaire.elements["majuscule"].checked || monformulaire.elements["chiffre"].checked || monformulaire.elements["symbole"].checked) === true){
+        return true;
+    } else{
+        return false;
+    }
 }
 
-function assertRequiredField(monformulaire){
+document.addEventListener("DOMContentLoaded",function(){
+    document.querySelector("addPWD").addEventListener("submit",function(){
+        if(check() === false && (monformulaire.elements["nombrecar"].value == "" && monformulaire.elements["date"].value == "dd/mm/yyyy" && monformulaire.elements["categorie"].value == "" && monformulaire.elements["categorie"].value == "" && monformulaire.elements["siteapp"].value == "")){
+            alert("Champs incomplets. Veuillez remplir les champs et cocher l'une des cases.");
+        }else{
+            generer();
+        }
+
+
+    });;
+
+});
+
+
+/*function assertRequiredField(monformulaire){
     return (monformulaire.elements["minuscule"].checked || monformulaire.elements["majuscule"].checked || monformulaire.elements["chiffre"].checked || monformulaire.elements["symbole"].checked) && (monformulaire.elements["nombrecar"].value !== "" && monformulaire.elements["date"].value !== "dd/mm/yyyy" && monformulaire.elements["categorie"].value !== "" && monformulaire.elements["categorie"].value !== "" && monformulaire.elements["siteapp"].value !== "");
-}
+}*/
 
 function generer(){
     var monformulaire = document.forms.ajoutPWD;
 
-    if (assertRequiredField(monformulaire)) {
+    //if (assertRequiredField(monformulaire)) {
         var password = "";
         var listecar= "";
 
@@ -94,8 +116,8 @@ function generer(){
         pwdTab.appendChild(newLine);
 
         document.ajoutPWD.reset();
-    }
-    else {alert("Champs incomplets. Veuillez remplir les champs et cocher l'une des cases.");}
+    //}
+    //else {alert("Champs incomplets. Veuillez remplir les champs et cocher l'une des cases.");}
 }
 
 function incrementerDuree() {
@@ -111,7 +133,13 @@ function incrementerDuree() {
 setInterval(incrementerDuree, 1000);
 
 function supprimer(){
+
+    let nbrow = montab.rows.length;
+
     if(confirm("Confirmez vous la suppression de tous les mots de passe générés ?")) {
         document.ajoutPWD.submit();
+
+
+
     }
 }
