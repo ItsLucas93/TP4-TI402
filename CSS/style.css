@@ -166,6 +166,16 @@ a {
     background-color: #268110;
 }
 
+.c6 {
+    color: lightgrey;
+    background-color: darkgray;
+}
+
+.c6:hover {
+    color: white;
+    background-color: lightgrey;
+}
+
 #information h1 {
     font-size: 30px;
 }

@@ -122,15 +122,28 @@ function generer(){
 
 function incrementerDuree() {
     let durees = document.getElementsByClassName("pwd-duration")
-    if (durees.length !== 0) {
-        Array.prototype.forEach.call(durees, function(dureeElement) {
+    //
+    // console.log(Array.from(durees).map(function(dureeElement) {
+    //     return dureeElement.textContent;
+    // }));
+    if ((durees.length !== 0)) {
+        Array.prototype.forEach.call(durees, function (dureeElement) {
             let valeur = parseInt(dureeElement.textContent);
-            dureeElement.textContent = valeur + 1;
+            let pwd = dureeElement.previousElementSibling;
+            if (valeur !== 60) {
+                dureeElement.textContent = valeur + 1;
+            }
+            if (valeur + 1 === 60) {
+                dureeElement.classList.add("c6");
+                pwd.textContent = 'Expirée !';
+                pwd.classList.replace("c5", "c6");
+            }
         });
     }
 }
 
 setInterval(incrementerDuree, 1000);
+
 
 function supprimer(){
 
