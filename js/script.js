@@ -109,3 +109,9 @@ function incrementerDuree() {
 }
 
 setInterval(incrementerDuree, 1000);
+
+function supprimer(){
+    if(confirm("Confirmez vous la suppression de tous les mots de passe générés ?")) {
+        document.ajoutPWD.submit();
+    }
+}
