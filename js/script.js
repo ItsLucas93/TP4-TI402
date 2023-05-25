@@ -29,25 +29,25 @@ function verify(password, monformulaire) {
     }
     return true;
 }*/
+let monformulaire = document.forms.ajoutPWD;
 
 function check(){
     if((monformulaire.elements["minuscule"].checked || monformulaire.elements["majuscule"].checked || monformulaire.elements["chiffre"].checked || monformulaire.elements["symbole"].checked) === true){
-        return true;
-    } else{
         return false;
+    } else{
+        return true;
     }
 }
 
 document.addEventListener("DOMContentLoaded",function(){
     document.querySelector("addPWD").addEventListener("submit",function(){
-        if(check() === false && (monformulaire.elements["nombrecar"].value == "" && monformulaire.elements["date"].value == "dd/mm/yyyy" && monformulaire.elements["categorie"].value == "" && monformulaire.elements["categorie"].value == "" && monformulaire.elements["siteapp"].value == "")){
+        if(check() === false && (monformulaire.elements["nombrecar"].value == "" || monformulaire.elements["date"].value == "dd/mm/yyyy" || monformulaire.elements["categorie"].value == "" || monformulaire.elements["categorie"].value == "" || monformulaire.elements["siteapp"].value == "")){
             alert("Champs incomplets. Veuillez remplir les champs et cocher l'une des cases.");
         }else{
             generer();
         }
 
-
-    });;
+    });
 
 });
 
@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded",function(){
 }*/
 
 function generer(){
-    var monformulaire = document.forms.ajoutPWD;
 
     //if (assertRequiredField(monformulaire)) {
         var password = "";
