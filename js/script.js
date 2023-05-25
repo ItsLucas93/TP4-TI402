@@ -146,9 +146,7 @@ function supprimer(){
     let nbrow = montab.rows.length;
 
     if(confirm("Confirmez vous la suppression de tous les mots de passe générés ?")) {
+        document.ajoutPWD.reset();
         document.ajoutPWD.submit();
-
-
-
     }
 }
