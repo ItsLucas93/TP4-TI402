@@ -4,47 +4,67 @@ var chiffre = "0123456789";
 var carspecial = "%!&*^()#$:";
 
 function hasCharacter(string1, string2) {
-    for (var i = 0; i < string2.length; i++) {if (string1.includes(string2[i])) {return true;}}
+    for (var i = 0; i < string2.length; i++) {
+        if (string1.includes(string2[i])) {
+            return true;
+        }
+    }
     return false;
 }
 
 function verify(password, monformulaire) {
     var tab = [0, 0, 0, 0];
-    if (monformulaire.elements["minuscule"].checked) {tab[0] = 1;}
-    if (monformulaire.elements["majuscule"].checked) {tab[1] = 1;}
-    if (monformulaire.elements["chiffre"].checked) {tab[2] = 1;}
-    if (monformulaire.elements["symbole"].checked) {tab[3] = 1;}
+    if (monformulaire.elements["minuscule"].checked) {
+        tab[0] = 1;
+    }
+    if (monformulaire.elements["majuscule"].checked) {
+        tab[1] = 1;
+    }
+    if (monformulaire.elements["chiffre"].checked) {
+        tab[2] = 1;
+    }
+    if (monformulaire.elements["symbole"].checked) {
+        tab[3] = 1;
+    }
 
     for (var i = 0; i < 4; i++) {
         switch (i) {
-            case 0: if (tab[i] === 1) {if (hasCharacter(password, minuscule) === false) return false}
+            case 0:
+                if (tab[i] === 1) {
+                    if (hasCharacter(password, minuscule) === false) return false
+                }
                 break;
-            case 1: if (tab[i] === 1) {if (hasCharacter(password, majuscule) === false) return false}
+            case 1:
+                if (tab[i] === 1) {
+                    if (hasCharacter(password, majuscule) === false) return false
+                }
                 break;
-            case 2: if (tab[i] === 1) {if (hasCharacter(password, chiffre) === false) return false}
+            case 2:
+                if (tab[i] === 1) {
+                    if (hasCharacter(password, chiffre) === false) return false
+                }
                 break;
-            case 3: if (tab[i] === 1) {if (hasCharacter(password, carspecial) === false) return false}
+            case 3:
+                if (tab[i] === 1) {
+                    if (hasCharacter(password, carspecial) === false) return false
+                }
                 break;
         }
     }
     return true;
 }
 
-function check(){
+function check() {
     var monformulaire = document.forms.ajoutPWD;
-    if((monformulaire.elements["minuscule"].checked || monformulaire.elements["majuscule"].checked || monformulaire.elements["chiffre"].checked || monformulaire.elements["symbole"].checked) === true){
-        return true;
-    } else{
-        return false;
-    }
+    return (monformulaire.elements["minuscule"].checked || monformulaire.elements["majuscule"].checked || monformulaire.elements["chiffre"].checked || monformulaire.elements["symbole"].checked) === true;
 }
 
-document.addEventListener("DOMContentLoaded",function() {
-    document.querySelector('#addPWD').addEventListener('submit',function(e){
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector('#addPWD').addEventListener('submit', function () {
         var monformulaire = document.forms.ajoutPWD;
-        if(check() === false || (monformulaire.elements["nombrecar"].value == "" || monformulaire.elements["date"].value == "dd/mm/yyyy" || monformulaire.elements["categorie"].value == "" || monformulaire.elements["categorie"].value == "" || monformulaire.elements["siteapp"].value == "")){
+        if (check() === false || (monformulaire.elements["nombrecar"].value === "" || monformulaire.elements["date"].value === "dd/mm/yyyy" || monformulaire.elements["categorie"].value === "" || monformulaire.elements["categorie"].value === "" || monformulaire.elements["siteapp"].value === "")) {
             alert("Champs incomplets. Veuillez remplir les champs et cocher l'une des cases.");
-        }else{
+        } else {
             generer();
         }
 
@@ -53,67 +73,66 @@ document.addEventListener("DOMContentLoaded",function() {
 });
 
 
-function generer(){
+function generer() {
 
     var monformulaire = document.forms.ajoutPWD;
 
-        var password = "";
-        var listecar= "";
+    var password = "";
+    var listecar = "";
 
-        if (monformulaire.elements["minuscule"].checked){
-            listecar+=minuscule;
+    if (monformulaire.elements["minuscule"].checked) {
+        listecar += minuscule;
+    }
+    if (monformulaire.elements["majuscule"].checked) {
+        listecar += majuscule;
+    }
+    if (monformulaire.elements["chiffre"].checked) {
+        listecar += chiffre;
+    }
+    if (monformulaire.elements["symbole"].checked) {
+        listecar += carspecial;
+    }
+
+    while (verify(password, monformulaire) === false) {
+        password = "";
+        console.log(password, verify(password, monformulaire));
+        for (var i = 1; i <= monformulaire.elements["nombrecar"].value; i++) {
+            var randomNumber = Math.floor(Math.random() * listecar.length);
+            password += listecar.substring(randomNumber, randomNumber + 1);
+
         }
-        if (monformulaire.elements["majuscule"].checked){
-            listecar+=majuscule;
-        }
-        if (monformulaire.elements["chiffre"].checked){
-            listecar+=chiffre;
-        }
-        if (monformulaire.elements["symbole"].checked){
-            listecar+=carspecial;
-        }
-    
-        while(verify(password,monformulaire)===false){
-            password="";
-            console.log(password,verify(password,monformulaire));
-            for (var i=1; i <= monformulaire.elements["nombrecar"].value;i++){
-                var randomNumber = Math.floor(Math.random()*listecar.length);
-                password+=listecar.substring(randomNumber,randomNumber+1);
+    }
 
-            }
-        }
+    var newLine = document.createElement("tr");
 
-        var newLine = document.createElement("tr");
+    var nbcar = document.createElement("td");
+    var date = document.createElement("td");
+    var catego = document.createElement("td");
+    var siteappli = document.createElement("td");
+    var finalpassword = document.createElement("td");
+    var dureevalidite = document.createElement("td");
 
-        var nbcar = document.createElement("td");
-        var date = document.createElement("td");
-        var catego = document.createElement("td");
-        var siteappli = document.createElement("td");
-        var finalpassword = document.createElement("td");
-        var dureevalidite = document.createElement("td");
+    nbcar.textContent = monformulaire.elements["nombrecar"].value;
+    date.textContent = monformulaire.elements["date"].value;
+    catego.textContent = monformulaire.elements["categorie"].value;
+    siteappli.textContent = monformulaire.elements["siteapp"].value;
+    finalpassword.textContent = password;
+    dureevalidite.textContent = '0';
 
-        nbcar.textContent = monformulaire.elements["nombrecar"].value;
-        date.textContent = monformulaire.elements["date"].value;
-        catego.textContent = monformulaire.elements["categorie"].value;
-        siteappli.textContent = monformulaire.elements["siteapp"].value;
-        finalpassword.textContent = password;
-        dureevalidite.textContent = '0';
+    nbcar.classList.add("c1");
+    date.classList.add("c2");
+    catego.classList.add("c3");
+    siteappli.classList.add("c4");
+    finalpassword.classList.add("c5");
+    dureevalidite.classList.add("pwd-duration");
 
-        nbcar.classList.add("c1");
-        date.classList.add("c2");
-        catego.classList.add("c3");
-        siteappli.classList.add("c4");
-        finalpassword.classList.add("c5");
-        dureevalidite.classList.add("pwd-duration");
+    newLine.append(nbcar, date, catego, siteappli, finalpassword, dureevalidite);
 
-        newLine.append(nbcar, date, catego, siteappli, finalpassword, dureevalidite);
+    var pwdTab = document.getElementById("montab");
 
-        var pwdTab = document.getElementById("montab");
+    pwdTab.appendChild(newLine);
 
-        pwdTab.appendChild(newLine);
-
-        document.ajoutPWD.reset();
-
+    document.ajoutPWD.reset();
 }
 
 function incrementerDuree() {
@@ -142,6 +161,7 @@ setInterval(incrementerDuree, 1000);
 
 
 function supprimer() {
+    // document.ajoutPWD.submit();
     if (confirm("Confirmez-vous la suppression de tous les mots de passe générés ?")) {
         var montab = document.getElementById("montab");
         var numRows = montab.rows.length;
