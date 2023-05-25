@@ -1,10 +1,3 @@
-/*function bienvenue(){
-    alert("Hello world !");
-    /*setTimeout(bienvenue,2000)
-    setInterval(bienvenue,5000)
-}
-setInterval(bienvenue,5000)*/
-
 var minuscule = "abcdefghijklmnopqrstuvwxyz";
 var majuscule = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var chiffre = "0123456789";
@@ -71,21 +64,7 @@ function generer(){
             }
         }
 
-        /*console.log(monformulaire.nombrecar.value);*/
-
         var newLine = document.createElement("tr");
-
-        /*var col1 = document.createElement("td");
-        var col2 = document.createElement("td");
-        var col3 = document.createElement("td");
-        var col4 = document.createElement("td");
-        //var col5 = document.createElement("td");
-
-        col1.textContent="8";
-        col2.textContent="08/01/2003";
-        col3.textContent="site";
-        col4.textContent="netflix";
-        //col5.textContent="5(_ofsd)fgv";*/
 
         var nbcar = document.createElement("td");
         var date = document.createElement("td");
@@ -106,19 +85,21 @@ function generer(){
         catego.classList.add("c3");
         siteappli.classList.add("c4");
         finalpassword.classList.add("c5");
-        dureevalidite.classList.add("dureevalidite");
+        dureevalidite.classList.add("pwd-duration");
 
         newLine.append(nbcar, date, catego, siteappli, finalpassword, dureevalidite);
 
         var pwdTab = document.getElementById("montab");
 
         pwdTab.appendChild(newLine);
+
+        document.ajoutPWD.reset();
     }
     else {alert("Champs incomplets. Veuillez remplir les champs et cocher l'une des cases.");}
 }
 
 function incrementerDuree() {
-    let durees = document.getElementsByClassName("duree")
+    let durees = document.getElementsByClassName("pwd-duration")
     if (durees.length !== 0) {
         Array.prototype.forEach.call(durees, function(dureeElement) {
             let valeur = parseInt(dureeElement.textContent);
@@ -127,4 +108,4 @@ function incrementerDuree() {
     }
 }
 
-const intervalID = setInterval(incrementerDuree, 1);
+setInterval(incrementerDuree, 1000);
