@@ -3,45 +3,21 @@ var majuscule = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var chiffre = "0123456789";
 var carspecial = "%!&*^()#$:";
 
-/*function hasCharacter(string1, string2) {
-    for (var i = 0; i < string2.length; i++) {if (string1.includes(string2[i])) {return true;}}
-    return false;
-}
-
-function verify(password, monformulaire) {
-    var tab = [0, 0, 0, 0];
-    if (monformulaire.elements["minuscule"].checked) {tab[0] = 1;}
-    if (monformulaire.elements["majuscule"].checked) {tab[1] = 1;}
-    if (monformulaire.elements["chiffre"].checked) {tab[2] = 1;}
-    if (monformulaire.elements["symbole"].checked) {tab[3] = 1;}
-
-    for (var i = 0; i < 4; i++) {
-        switch (i) {
-            case 0: if (tab[i] === 1) {if (hasCharacter(password, minuscule) === false) return false}
-                break;
-            case 1: if (tab[i] === 1) {if (hasCharacter(password, majuscule) === false) return false}
-                break;
-            case 2: if (tab[i] === 1) {if (hasCharacter(password, chiffre) === false) return false}
-                break;
-            case 3: if (tab[i] === 1) {if (hasCharacter(password, carspecial) === false) return false}
-                break;
-        }
-    }
-    return true;
-}*/
-let monformulaire = document.forms.ajoutPWD;
 
 function check(){
+    var monformulaire = document.forms.ajoutPWD;
     if((monformulaire.elements["minuscule"].checked || monformulaire.elements["majuscule"].checked || monformulaire.elements["chiffre"].checked || monformulaire.elements["symbole"].checked) === true){
-        return false;
-    } else{
         return true;
+    } else{
+        return false;
     }
 }
 
-document.addEventListener("DOMContentLoaded",function(){
-    document.querySelector("addPWD").addEventListener("submit",function(){
-        if(check() === false && (monformulaire.elements["nombrecar"].value == "" || monformulaire.elements["date"].value == "dd/mm/yyyy" || monformulaire.elements["categorie"].value == "" || monformulaire.elements["categorie"].value == "" || monformulaire.elements["siteapp"].value == "")){
+document.addEventListener("DOMContentLoaded",function() {
+    document.querySelector('#addPWD').addEventListener('submit',function(e){
+        var monformulaire = document.forms.ajoutPWD;
+        if(check() === false || (monformulaire.elements["nombrecar"].value == "" || monformulaire.elements["date"].value == "dd/mm/yyyy" || monformulaire.elements["categorie"].value == "" || monformulaire.elements["categorie"].value == "" || monformulaire.elements["siteapp"].value == "")){
+            console.log("test");
             alert("Champs incomplets. Veuillez remplir les champs et cocher l'une des cases.");
         }else{
             generer();
@@ -52,13 +28,10 @@ document.addEventListener("DOMContentLoaded",function(){
 });
 
 
-/*function assertRequiredField(monformulaire){
-    return (monformulaire.elements["minuscule"].checked || monformulaire.elements["majuscule"].checked || monformulaire.elements["chiffre"].checked || monformulaire.elements["symbole"].checked) && (monformulaire.elements["nombrecar"].value !== "" && monformulaire.elements["date"].value !== "dd/mm/yyyy" && monformulaire.elements["categorie"].value !== "" && monformulaire.elements["categorie"].value !== "" && monformulaire.elements["siteapp"].value !== "");
-}*/
-
 function generer(){
 
-    //if (assertRequiredField(monformulaire)) {
+    var monformulaire = document.forms.ajoutPWD;
+
         var password = "";
         var listecar= "";
 
@@ -75,9 +48,9 @@ function generer(){
             listecar+=carspecial;
         }
 
-        while(verify(password,monformulaire)===false){
+        while(password,monformulaire){
             password="";
-            console.log(password,verify(password,monformulaire));
+            console.log(password);
             for (var i=1; i <= monformulaire.elements["nombrecar"].value;i++){
                 var randomNumber = Math.floor(Math.random()*listecar.length);
                 password+=listecar.substring(randomNumber,randomNumber+1);
@@ -115,8 +88,7 @@ function generer(){
         pwdTab.appendChild(newLine);
 
         document.ajoutPWD.reset();
-    //}
-    //else {alert("Champs incomplets. Veuillez remplir les champs et cocher l'une des cases.");}
+
 }
 
 function incrementerDuree() {
