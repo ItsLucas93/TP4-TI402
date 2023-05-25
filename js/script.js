@@ -141,12 +141,15 @@ function incrementerDuree() {
 setInterval(incrementerDuree, 1000);
 
 
-function supprimer(){
+function supprimer() {
+    if (confirm("Confirmez-vous la suppression de tous les mots de passe générés ?")) {
+        var montab = document.getElementById("montab");
+        var numRows = montab.rows.length;
 
-    let nbrow = montab.rows.length;
-
-    if(confirm("Confirmez vous la suppression de tous les mots de passe générés ?")) {
-        document.ajoutPWD.reset();
-        document.ajoutPWD.submit();
+        // Suppression des lignes du tableau (à l'exception de la ligne d'entête)
+        while (numRows > 1) {
+            montab.removeChild(montab.lastChild);
+            numRows--;
+        }
     }
 }
