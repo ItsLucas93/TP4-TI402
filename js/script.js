@@ -179,14 +179,29 @@ function supprimer() {
 
 function pwdSaisi(pwd) {
     let content = Array.from(pwd).map(function (child) {
-        return child.childNodes;
+        return child.value;
     })
 
+    const nombrecar = content[0];
+    const date = content[1];
+    const categorie = content[2];
+    const siteapp = content[3];
+    const password = content[4];
+
     const NvPWD = new PWD(nombrecar, date, categorie, siteapp, password);
+    pushPWD(nombrecar, date, categorie, siteapp, password);
 }
 
-class PWD{
-    constructor (nombrecar, date, categorie, siteapp, password) {
+
+let mesPWDs = [];
+
+function pushPWD(nombrecar, date, categorie, siteapp, password) {
+    const newPwd = new PWD(nombrecar, date, categorie, siteapp, password);
+    mesPWDs.push(newPwd);
+}
+
+class PWD {
+    constructor(nombrecar, date, categorie, siteapp, password) {
         this.nombrecar = nombrecar;
         this.date = date;
         this.categorie = categorie;
@@ -197,8 +212,8 @@ class PWD{
     printPwd() {
         console.log(`Nombre de caractères saisi: ${this.nombrecar}`);
         console.log(`Date de validité: ${this.date}`);
-        console.log(`Categorie saisie: ${this.catego}`);
+        console.log(`Categorie saisie: ${this.categorie}`);
         console.log(`Site saisi: ${this.siteapp}`);
         console.log(`Mot de passe généré : ${this.password}`);
-        }
+    }
 }
