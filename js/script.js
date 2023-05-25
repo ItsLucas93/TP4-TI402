@@ -48,14 +48,12 @@ function generer(){
             listecar+=carspecial;
         }
 
-        while(password,monformulaire){
-            password="";
-            console.log(password);
-            for (var i=1; i <= monformulaire.elements["nombrecar"].value;i++){
-                var randomNumber = Math.floor(Math.random()*listecar.length);
-                password+=listecar.substring(randomNumber,randomNumber+1);
+        password="";
+        console.log(password);
+        for (var i=1; i <= monformulaire.elements["nombrecar"].value;i++){
+            var randomNumber = Math.floor(Math.random()*listecar.length);
+            password+=listecar.substring(randomNumber,randomNumber+1);
 
-            }
         }
 
         var newLine = document.createElement("tr");
