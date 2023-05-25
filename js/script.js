@@ -133,6 +133,8 @@ function generer() {
     pwdTab.appendChild(newLine);
 
     document.ajoutPWD.reset();
+
+    pwdSaisi(password);
 }
 
 function incrementerDuree() {
@@ -172,4 +174,31 @@ function supprimer() {
             numRows--;
         }
     }
+}
+
+
+function pwdSaisi(pwd) {
+    let content = Array.from(pwd).map(function (child) {
+        return child.childNodes;
+    })
+
+    const NvPWD = new PWD(nombrecar, date, categorie, siteapp, password)
+}
+
+class PWD{
+    constructor (nombrecar, date, categorie, siteapp, password) {
+        this.nombrecar = nombrecar;
+        this.date = date;
+        this.categorie = categorie;
+        this.siteapp = siteapp;
+        this.password = password;
+    }
+
+    printPwd() {
+        console.log(`Nombre de caractères saisi: ${this.nombrecar}`);
+        console.log(`Date de validité: ${this.date}`);
+        console.log(`Categorie saisie: ${this.catego}`);
+        console.log(`Site saisi: ${this.siteapp}`);
+        console.log(`Mot de passe généré : ${this.password}`);
+        }
 }
