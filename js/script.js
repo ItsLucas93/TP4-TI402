@@ -182,7 +182,7 @@ function pwdSaisi(pwd) {
         return child.childNodes;
     })
 
-    const NvPWD = new PWD(nombrecar, date, categorie, siteapp, password)
+    const NvPWD = new PWD(nombrecar, date, categorie, siteapp, password);
 }
 
 class PWD{
