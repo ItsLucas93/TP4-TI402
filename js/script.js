@@ -95,7 +95,7 @@ function generer() {
 
     while (verify(password, monformulaire) === false) {
         password = "";
-        console.log(password, verify(password, monformulaire));
+        //console.log(password, verify(password, monformulaire));
         for (var i = 1; i <= monformulaire.elements["nombrecar"].value; i++) {
             var randomNumber = Math.floor(Math.random() * listecar.length);
             password += listecar.substring(randomNumber, randomNumber + 1);
@@ -178,20 +178,33 @@ function supprimer() {
 
 
 function pwdSaisi(pwd) {
+
+    var monformulaire = document.forms.ajoutPWD;
+
     let content = Array.from(pwd).map(function (child) {
         return child.value;
     })
 
-    const nombrecar = content[0];
-    const date = content[1];
-    const categorie = content[2];
-    const siteapp = content[3];
-    const password = content[4];
+    const NewPWD = {
+        nombrecar : monformulaire.elements["nombrecar"].value,
+        date : monformulaire.elements["date"].value,
+        categorie : monformulaire.elements["categorie"].value,
+        siteapp : monformulaire.elements["siteapp"].value,
+        password : pwd
+    };
 
-    const NvPWD = new PWD(nombrecar, date, categorie, siteapp, password);
+    var nombrecar = monformulaire.elements["nombrecar"].value.textContent;
+    var date = monformulaire.elements["date"].value.textContent;
+    var categorie = monformulaire.elements["categorie"].value.textContent;
+    var siteapp = monformulaire.elements["siteapp"].value.textContent;
+    var password = pwd;
+
+    const NvPWD = new PWD(nombrecar, date, categorie, siteapp, password)
+
+    NvPWD.printPwd();
+
     pushPWD(nombrecar, date, categorie, siteapp, password);
 }
-
 
 let mesPWDs = [];
 
