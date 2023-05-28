@@ -2,6 +2,27 @@ var minuscule = "abcdefghijklmnopqrstuvwxyz";
 var majuscule = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var chiffre = "0123456789";
 var carspecial = "%!&*^()#$:";
+var mesPWDs = [];
+
+setInterval(incrementerDuree, 1000);
+
+class PWD {
+    constructor(nombrecar, date, categorie, siteapp, password) {
+        this.nombrecar = nombrecar;
+        this.date = date;
+        this.categorie = categorie;
+        this.siteapp = siteapp;
+        this.password = password;
+    }
+
+    printPwd() {
+        console.log(`Nombre de caractères saisi: ${this.nombrecar}`);
+        console.log(`Date de validité: ${this.date}`);
+        console.log(`Categorie saisie: ${this.categorie}`);
+        console.log(`Site saisi: ${this.siteapp}`);
+        console.log(`Mot de passe généré : ${this.password}`);
+    }
+}
 
 function hasCharacter(string1, string2) {
     for (let i = 0; i < string2.length; i++) {
@@ -72,7 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
 function generer() {
 
     let monformulaire = document.forms.ajoutPWD;
@@ -112,12 +132,22 @@ function generer() {
     let finalpassword = document.createElement("td");
     let dureevalidite = document.createElement("td");
 
+    //faire un forEach ici pour la question de la P3.c
+
     nbcar.textContent = monformulaire.elements["nombrecar"].value;
     date.textContent = monformulaire.elements["date"].value;
     catego.textContent = monformulaire.elements["categorie"].value;
     siteappli.textContent = monformulaire.elements["siteapp"].value;
     finalpassword.textContent = password;
-    
+
+    newLine.append(nbcar, date, catego, siteappli, finalpassword, dureevalidite);
+    let pwdTab = document.getElementById("montab");
+    pwdTab.appendChild(newLine);
+
+    //boucler jusqu'ici
+
+    pwdSaisi(password);
+
     dureevalidite.textContent = '0';
 
     nbcar.classList.add("c1");
@@ -127,23 +157,16 @@ function generer() {
     finalpassword.classList.add("c5");
     dureevalidite.classList.add("pwd-duration");
 
-    newLine.append(nbcar, date, catego, siteappli, finalpassword, dureevalidite);
-
-    let pwdTab = document.getElementById("montab");
-
-    pwdTab.appendChild(newLine);
-
-    pwdSaisi(password);
-
     document.ajoutPWD.reset();
 }
 
 function incrementerDuree() {
     let durees = document.getElementsByClassName("pwd-duration")
-    //
-    // console.log(Array.from(durees).map(function(dureeElement) {
-    //     return dureeElement.textContent;
-    // }));
+
+    /*console.log(Array.from(durees).map(function(dureeElement) {
+        return dureeElement.textContent;
+    }));*/
+
     if ((durees.length !== 0)) {
         Array.prototype.forEach.call(durees, function (dureeElement) {
             let valeur = parseInt(dureeElement.textContent);
@@ -160,9 +183,6 @@ function incrementerDuree() {
     }
 }
 
-setInterval(incrementerDuree, 1000);
-
-
 function supprimer() {
     // document.ajoutPWD.submit();
     if (confirm("Confirmez-vous la suppression de tous les mots de passe générés ?")) {
@@ -176,7 +196,6 @@ function supprimer() {
         }
     }
 }
-
 
 function pwdSaisi(pwd) {
 
@@ -210,27 +229,9 @@ function pwdSaisi(pwd) {
     console.log(mesPWDs);
 }
 
-var mesPWDs = [];
-
 function pushPWD(nombrecar, date, categorie, siteapp, password) {
     const newPwd = new PWD(nombrecar, date, categorie, siteapp, password);
     mesPWDs.push(newPwd);
 }
 
-class PWD {
-    constructor(nombrecar, date, categorie, siteapp, password) {
-        this.nombrecar = nombrecar;
-        this.date = date;
-        this.categorie = categorie;
-        this.siteapp = siteapp;
-        this.password = password;
-    }
 
-    printPwd() {
-        console.log(`Nombre de caractères saisi: ${this.nombrecar}`);
-        console.log(`Date de validité: ${this.date}`);
-        console.log(`Categorie saisie: ${this.categorie}`);
-        console.log(`Site saisi: ${this.siteapp}`);
-        console.log(`Mot de passe généré : ${this.password}`);
-    }
-}
