@@ -132,9 +132,9 @@ function generer() {
 
     pwdTab.appendChild(newLine);
 
-    document.ajoutPWD.reset();
-
     pwdSaisi(password);
+
+    document.ajoutPWD.reset();
 }
 
 function incrementerDuree() {
@@ -193,13 +193,13 @@ function pwdSaisi(pwd) {
         password : pwd
     };
 
-    var nombrecar = monformulaire.elements["nombrecar"].value.textContent;
-    var date = monformulaire.elements["date"].value.textContent;
-    var categorie = monformulaire.elements["categorie"].value.textContent;
-    var siteapp = monformulaire.elements["siteapp"].value.textContent;
+    var nombrecar = monformulaire.elements["nombrecar"].value;
+    var date = monformulaire.elements["date"].value;
+    var categorie = monformulaire.elements["categorie"].value;
+    var siteapp = monformulaire.elements["siteapp"].value;
     var password = pwd;
 
-    const NvPWD = new PWD(nombrecar, date, categorie, siteapp, password)
+    const NvPWD = new PWD(nombrecar, date, categorie, siteapp, password);
 
     NvPWD.printPwd();
 
