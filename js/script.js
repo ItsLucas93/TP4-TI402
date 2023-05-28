@@ -4,7 +4,7 @@ var chiffre = "0123456789";
 var carspecial = "%!&*^()#$:";
 
 function hasCharacter(string1, string2) {
-    for (var i = 0; i < string2.length; i++) {
+    for (let i = 0; i < string2.length; i++) {
         if (string1.includes(string2[i])) {
             return true;
         }
@@ -13,7 +13,7 @@ function hasCharacter(string1, string2) {
 }
 
 function verify(password, monformulaire) {
-    var tab = [0, 0, 0, 0];
+    let tab = [0, 0, 0, 0];
     if (monformulaire.elements["minuscule"].checked) {
         tab[0] = 1;
     }
@@ -27,7 +27,7 @@ function verify(password, monformulaire) {
         tab[3] = 1;
     }
 
-    for (var i = 0; i < 4; i++) {
+    for (let i = 0; i < 4; i++) {
         switch (i) {
             case 0:
                 if (tab[i] === 1) {
@@ -55,13 +55,13 @@ function verify(password, monformulaire) {
 }
 
 function check() {
-    var monformulaire = document.forms.ajoutPWD;
+    let monformulaire = document.forms.ajoutPWD;
     return (monformulaire.elements["minuscule"].checked || monformulaire.elements["majuscule"].checked || monformulaire.elements["chiffre"].checked || monformulaire.elements["symbole"].checked) === true;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector('#addPWD').addEventListener('submit', function () {
-        var monformulaire = document.forms.ajoutPWD;
+    document.querySelector('#addPWD').querySelector("#ajout").addEventListener('click', function () {
+        let monformulaire = document.forms.ajoutPWD;
         if (check() === false || (monformulaire.elements["nombrecar"].value === "" || monformulaire.elements["date"].value === "dd/mm/yyyy" || monformulaire.elements["categorie"].value === "" || monformulaire.elements["categorie"].value === "" || monformulaire.elements["siteapp"].value === "")) {
             alert("Champs incomplets. Veuillez remplir les champs et cocher l'une des cases.");
         } else {
@@ -75,10 +75,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function generer() {
 
-    var monformulaire = document.forms.ajoutPWD;
+    let monformulaire = document.forms.ajoutPWD;
 
-    var password = "";
-    var listecar = "";
+    let password = "";
+    let listecar = "";
 
     if (monformulaire.elements["minuscule"].checked) {
         listecar += minuscule;
@@ -103,20 +103,21 @@ function generer() {
         }
     }
 
-    var newLine = document.createElement("tr");
+    let newLine = document.createElement("tr");
 
-    var nbcar = document.createElement("td");
-    var date = document.createElement("td");
-    var catego = document.createElement("td");
-    var siteappli = document.createElement("td");
-    var finalpassword = document.createElement("td");
-    var dureevalidite = document.createElement("td");
+    let nbcar = document.createElement("td");
+    let date = document.createElement("td");
+    let catego = document.createElement("td");
+    let siteappli = document.createElement("td");
+    let finalpassword = document.createElement("td");
+    let dureevalidite = document.createElement("td");
 
     nbcar.textContent = monformulaire.elements["nombrecar"].value;
     date.textContent = monformulaire.elements["date"].value;
     catego.textContent = monformulaire.elements["categorie"].value;
     siteappli.textContent = monformulaire.elements["siteapp"].value;
     finalpassword.textContent = password;
+    
     dureevalidite.textContent = '0';
 
     nbcar.classList.add("c1");
@@ -128,7 +129,7 @@ function generer() {
 
     newLine.append(nbcar, date, catego, siteappli, finalpassword, dureevalidite);
 
-    var pwdTab = document.getElementById("montab");
+    let pwdTab = document.getElementById("montab");
 
     pwdTab.appendChild(newLine);
 
@@ -165,8 +166,8 @@ setInterval(incrementerDuree, 1000);
 function supprimer() {
     // document.ajoutPWD.submit();
     if (confirm("Confirmez-vous la suppression de tous les mots de passe générés ?")) {
-        var montab = document.getElementById("montab");
-        var numRows = montab.rows.length;
+        let montab = document.getElementById("montab");
+        let numRows = montab.rows.length;
 
         // Suppression des lignes du tableau (à l'exception de la ligne d'entête)
         while (numRows > 1) {
@@ -179,7 +180,7 @@ function supprimer() {
 
 function pwdSaisi(pwd) {
 
-    var monformulaire = document.forms.ajoutPWD;
+    let monformulaire = document.forms.ajoutPWD;
 
     let content = Array.from(pwd).map(function (child) {
         return child.value;
@@ -193,20 +194,23 @@ function pwdSaisi(pwd) {
         password : pwd
     };
 
-    var nombrecar = monformulaire.elements["nombrecar"].value;
-    var date = monformulaire.elements["date"].value;
-    var categorie = monformulaire.elements["categorie"].value;
-    var siteapp = monformulaire.elements["siteapp"].value;
-    var password = pwd;
+    let nombrecar = monformulaire.elements["nombrecar"].value;
+    let date = monformulaire.elements["date"].value;
+    let categorie = monformulaire.elements["categorie"].value;
+    let siteapp = monformulaire.elements["siteapp"].value;
+    let password = pwd;
 
     const NvPWD = new PWD(nombrecar, date, categorie, siteapp, password);
 
     NvPWD.printPwd();
 
     pushPWD(nombrecar, date, categorie, siteapp, password);
+
+    console.log("Tableau des mots de passes :");
+    console.log(mesPWDs);
 }
 
-let mesPWDs = [];
+var mesPWDs = [];
 
 function pushPWD(nombrecar, date, categorie, siteapp, password) {
     const newPwd = new PWD(nombrecar, date, categorie, siteapp, password);
