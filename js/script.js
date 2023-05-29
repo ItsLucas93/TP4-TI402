@@ -132,9 +132,7 @@ function generer() {
     let finalpassword = document.createElement("td");
     let dureevalidite = document.createElement("td");
 
-    //faire un forEach ici pour la question de la P3.c
-
-    nbcar.textContent = monformulaire.elements["nombrecar"].value;
+    /*nbcar.textContent = monformulaire.elements["nombrecar"].value;
     date.textContent = monformulaire.elements["date"].value;
     catego.textContent = monformulaire.elements["categorie"].value;
     siteappli.textContent = monformulaire.elements["siteapp"].value;
@@ -143,10 +141,21 @@ function generer() {
     newLine.append(nbcar, date, catego, siteappli, finalpassword, dureevalidite);
     let pwdTab = document.getElementById("montab");
     pwdTab.appendChild(newLine);
-
-    //boucler jusqu'ici
+    */
 
     pwdSaisi(password);
+
+    Array.prototype.forEach.call(mesPWDs, (elemPWDs) => {
+        nbcar.textContent = elemPWDs.nombrecar;
+        date.textContent = elemPWDs.date;
+        catego.textContent = elemPWDs.categorie;
+        siteappli.textContent = elemPWDs.siteapp;
+        finalpassword.textContent = elemPWDs.password;
+        
+        newLine.append(nbcar,date,catego,siteappli,finalpassword,dureevalidite);
+        let pwdTab = document.getElementById("montab");
+        pwdTab.appendChild(newLine);
+    });
 
     dureevalidite.textContent = '0';
 
@@ -194,6 +203,7 @@ function supprimer() {
             montab.removeChild(montab.lastChild);
             numRows--;
         }
+        mesPWDs = [];
     }
 }
 
