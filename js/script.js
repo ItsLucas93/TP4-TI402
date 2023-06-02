@@ -83,7 +83,7 @@ function check() {
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelector('#addPWD').querySelector("#ajout").addEventListener('click', function () {
         let monformulaire = document.forms.ajoutPWD;
-        if (check() === false || (monformulaire.elements["nombrecar"].value === "" || monformulaire.elements["date"].value === "dd/mm/yyyy" || monformulaire.elements["categorie"].value === "" || monformulaire.elements["categorie"].value === "" || monformulaire.elements["siteapp"].value === "")) {
+        if (check() === false || (monformulaire.elements["nombrecar"].value === "" || monformulaire.elements["date"].value === "" || monformulaire.elements["categorie"].value === "" || monformulaire.elements["categorie"].value === "" || monformulaire.elements["siteapp"].value === "")) {
             alert("Champs incomplets. Veuillez remplir les champs et cocher l'une des cases.");
         } else {
             generer();
